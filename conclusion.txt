@@ -1,0 +1,25 @@
+Conclusion
+Based on the initial analysis and the methodologies employed, it appears that Instagram employs robust security measures to protect user data during transmission. The predominant use of encrypted traffic, as would be revealed in packet captures, suggests a high level of concern for data privacy and security.
+
+Project Details
+Objective: Investigate the types of data transmitted by the Instagram mobile app and the security measures employed, particularly focusing on encryption levels.
+Tools:
+Wireshark: For capturing network traffic data.
+Python Libraries (Pandas, Pyshark, etc.): For analyzing the network traffic data.
+Tshark: For filtering and analyzing specific aspects of the network packets.
+Data Focus: Network packets potentially containing text, images, or metadata.
+Methodology:
+Capturing traffic from personal smartphones using the Instagram app.
+Filtering the data to isolate Instagram-related traffic.
+Analyzing packet sizes, flows, and other metadata to infer types of transmitted data and their security measures.
+Privacy and Security Consideration: Using own device and ensuring anonymization of data and code for public sharing.
+Expected Results
+Insights into Data Types: Detailed understanding of the types of data (text, images, metadata) transmitted by the Instagram app.
+Security Evaluation: Assessment of the encryption levels used in the data transmissions.
+Contribution to Public Knowledge: The anonymized datasets and analysis code will be made available on GitHub for academic and public scrutiny, contributing to the broader understanding of user data privacy and security in mobile applications.
+Ethical and Legal Considerations
+Adherence to privacy laws and ethical guidelines in data handling.
+Focus on anonymization to ensure no personal or sensitive data is exposed.
+Significance of the Study
+This project will help in understanding the extent to which using Instagram may impact user data privacy.
+The findings will be valuable for users, developers, and researchers interested in mobile app security and privacy.
