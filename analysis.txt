@@ -1,5 +1,18 @@
 here's an analysis of the captured network traffic from the test.pcapng file:
 
+Your output indicates that the script is functioning and producing visualizations and printed information about the network traffic contained in your pcap file. Here are some interpretations and possible next steps based on the output you've shared:
+
+Packet Lengths Histogram:
+The histogram shows the distribution of packet sizes. The concentration of packets at the lower end could represent regular small-sized packets (like ACK packets in TCP), and the spikes at higher values could indicate data transmissions (possibly images or video content if this is Instagram traffic).
+Total HTTPS Packets:
+The count of HTTPS packets indicates that a significant portion of the traffic is encrypted, which is consistent with secure web and application traffic. This suggests that Instagram is using encryption to protect user data.
+Payloads:
+The payloads you printed are likely encrypted (as indicated by the \x17\x03\x03 sequence, which is characteristic of TLS traffic), reinforcing the conclusion that the data is being transmitted securely.
+While you cannot decrypt these payloads without the proper keys, the fact that you're seeing encrypted payloads is a positive sign of Instagram's security measures.
+Flow Analysis:
+The flow analysis output shows communication between specific IP address pairs and the number of packets exchanged. This information can help identify the most active nodes in the network traffic and is useful for understanding communication patterns.
+Based on this analysis, your conclusion that Instagram is taking measures to secure data transmission seems to be supported. The presence of encrypted packets (HTTPS on port 443) and the absence of plaintext sensitive data in the payload output are good indicators of robust security practices.
+
 SSL/TLS Packets Analysis:
 You have a total of 70 packets that are likely to be SSL/TLS, as indicated by their use of port 443. This suggests a significant portion of the traffic is encrypted, which is common for secure web communications, including those used by apps like Instagram.
 Protocol Distribution:
