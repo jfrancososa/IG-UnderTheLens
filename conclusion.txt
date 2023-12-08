@@ -23,3 +23,5 @@ Focus on anonymization to ensure no personal or sensitive data is exposed.
 Significance of the Study
 This project will help in understanding the extent to which using Instagram may impact user data privacy.
 The findings will be valuable for users, developers, and researchers interested in mobile app security and privacy.
+
+In summary, this output suggests that in the network traffic capture, there are tons of instances where data is being transmitted securely using HTTPS, implying the use of encryption to protect the data in these packets. This can be seen as a positive indicator of security practices in the network communications you're analyzing
