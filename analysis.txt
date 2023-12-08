@@ -21,3 +21,8 @@ Next Steps:
 To further understand the nature of the traffic, especially for identifying data related to Instagram usage, you might filter and analyze specific IP addresses or domains known to be associated with Instagram.
 Decrypting SSL/TLS traffic would require advanced techniques and appropriate legal and ethical considerations.
 Correlating the captured data with specific user actions in the Instagram app could provide more insights into the app's data transmission behaviors.
+
+Interpretation
+If the traffic is mostly encrypted (which is likely), it's a sign that Instagram is using robust security measures to protect user data.
+You can infer certain things from the metadata of the traffic (like packet sizes, timing, and flow patterns) but not the content of the communications.
+The absence of unencrypted sensitive data (like plain text passwords or unencrypted images) in the capture would suggest good security practices by Instagram.
