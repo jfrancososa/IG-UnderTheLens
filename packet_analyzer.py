@@ -49,15 +49,6 @@ plt.ylabel('Count')
 plt.xticks(rotation=45)
 plt.show()
 
-# TCP Flag Analysis
-tcp_flags = [str(packet[TCP].flags) for packet in packets if TCP in packet]
-flag_counts = Counter(tcp_flags)
-plt.figure(figsize=(12, 6))
-plt.bar(flag_counts.keys(), flag_counts.values())
-plt.title('TCP Flag Distribution')
-plt.xlabel('TCP Flags')
-plt.ylabel('Frequency')
-plt.show()
 
 # HTTPS Traffic Analysis
 https_traffic = [pkt for pkt in packets if TCP in pkt and (pkt[TCP].sport == 443 or pkt[TCP].dport == 443)]
@@ -88,3 +79,46 @@ for packet in packets:
 
 for flow, pkts in flows.items():
     print(f"Flow: {flow}, Packet Count: {len(pkts)}")
+from scapy.all import rdpcap, IP, TCP, Raw
+import matplotlib.pyplot as plt
+from collections import Counter
+import numpy as np
+from sklearn.cluster import KMeans
+
+# Read the pcap file
+file_path = "test.pcapng"
+packets = rdpcap(file_path)
+
+# Time-Series Analysis
+timestamps = [pkt.time for pkt in packets]
+inter_arrival_times = np.diff(timestamps)  # Calculate inter-arrival times
+plt.figure(figsize=(12, 6))
+plt.plot(timestamps[1:], inter_arrival_times)  # Ignore the first timestamp as there's no preceding packet
+plt.title('Inter-Arrival Times Over Time')
+plt.xlabel('Time (seconds)')
+plt.ylabel('Inter-Arrival Time (seconds)')
+plt.show()
+
+# Packet Length Clustering
+packet_lengths = np.array([[len(pkt)] for pkt in packets])
+kmeans = KMeans(n_clusters=3).fit(packet_lengths)  # Three clusters: small for text, medium for images, large for video
+centroids = kmeans.cluster_centers_
+plt.figure(figsize=(12, 6))
+plt.scatter(packet_lengths, np.zeros_like(packet_lengths), c=kmeans.labels_, cmap='rainbow')
+plt.scatter(centroids, np.zeros_like(centroids), color='black')
+plt.title('Packet Length Clustering')
+plt.xlabel('Packet Length (bytes)')
+plt.yticks([])  # Hide y-axis as it's not meaningful here
+plt.show()
+
+# TCP Flag Analysis
+tcp_flags = Counter([pkt[TCP].flags for pkt in packets if TCP in pkt])
+plt.figure(figsize=(12, 6))
+plt.bar(range(len(tcp_flags)), list(tcp_flags.values()), tick_label=list(tcp_flags.keys()))
+plt.title('TCP Flag Distribution')
+plt.xlabel('TCP Flags')
+plt.ylabel('Frequency')
+plt.show()
+
+# Print the centroids of packet length clusters
+print(f'Centroids of packet length clusters: {centroids.ravel()}')
