@@ -25,3 +25,15 @@ This project will help in understanding the extent to which using Instagram may 
 The findings will be valuable for users, developers, and researchers interested in mobile app security and privacy.
 
 In summary, this output suggests that in the network traffic capture, there are tons of instances where data is being transmitted securely using HTTPS, implying the use of encryption to protect the data in these packets. This can be seen as a positive indicator of security practices in the network communications you're analyzing
+
+Packet Lengths Histogram: Analysis of the distribution of packet sizes, indicating different types of network traffic.
+HTTPS Packets: Count and implication of a significant number of encrypted HTTPS packets.
+Payloads: Examination of encrypted payloads.
+Flow Analysis: Analysis of communication patterns between IP addresses.
+SSL/TLS Packets Analysis: Counts and implications of encrypted SSL/TLS packets.
+Protocol Distribution: Breakdown of TCP and UDP packets in the capture.
+Endpoint Communication Analysis: Examination of communication endpoints and packet exchanges.
+Raw Payload Output: Interpretation of encrypted raw payloads.
+Overall Analysis: Conclusions about the nature of the traffic, including security aspects.
+Next Steps: Suggestions for further analysis to better understand the data.
+The file concludes that Instagram appears to use robust security measures for data transmission, as indicated by the presence of encrypted traffic and the absence of plaintext sensitive data.
